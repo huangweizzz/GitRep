@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller //@controller是为了让Spring IOC容器初始化时自动扫描到
-@RequestMapping("/helloController")
+@Controller //@Controller是为了让Spring IOC容器初始化时自动扫描到
+@RequestMapping("/user")
 public class UserController {
 
     @RequestMapping("hello")
@@ -28,9 +28,13 @@ public class UserController {
     //2.重定向
     @RequestMapping("/redirect")
     public String testRedirect(){
-        //重定向
         return "redirect:/index.jsp";
-        // return "redirect:hello.do"   hello.do为另一个请求
+    }
+
+    @RequestMapping("/redirect2")
+    public String testRedirect2(){
+
+        return "redirect:hello";
     }
 
     //3.提交的域名称和处理方法的参数名不一致
@@ -57,5 +61,16 @@ public class UserController {
         System.out.println(reslut);
         model.addAttribute("msg",reslut);
         return  "test";
+    }
+
+    @RequestMapping("/testRequestParam")
+    //@RequestParam Integer id 前端参数和后端方法必须一致
+    //@RequestParam(value = "ids") Integer id 指定前端的参数和后端的参数对应
+    //@RequestParam(value = "ids",required = false) Integer id 参数值是否必须默认为true
+    //@RequestParam(value = "ids",required = false,defaultValue = "10" 默认值是true
+    public String testRequestParam(@RequestParam(value = "ids",required = true,defaultValue = "10") Integer id){
+        System.out.println("测试");
+        System.out.println(id);
+        return "test";
     }
 }
