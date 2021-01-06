@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--
+            在springmvc的配置文件中，需要配置扫描Controller包的注解以便将Controller交给Spring的ioc来管理，需要配置视图解析器，还需要设置静态资源不加载，
+            开启SpringMVC的注解支持，这里还需要注意，springmvc里的配置只需要扫描Contrallor的注解，别的注解不扫描，这个时候还需要一个子标签
+            springmvc.xml
+    -->
+
+
+    <!--只扫描Controller注解    -->
+    <context:component-scan base-package="com.ssm">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--配置视图解析器-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--设置静态资源不过滤-->
+    <mvc:resources mapping="/css/" location="/css/**"></mvc:resources>
+    <mvc:resources mapping="/images/" location="/images/**"></mvc:resources>
+    <mvc:resources mapping="/js/" location="/js/**"></mvc:resources>
+
+    <!--开启SpringMVC的注解支持-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+</beans>

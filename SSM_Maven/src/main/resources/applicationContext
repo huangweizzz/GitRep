@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--  配置需要扫描的包  -->
+    <context:component-scan base-package="com.ssm"></context:component-scan>
+
+
+    <!--
+    Spring整合Mybatis同样有相同的问题，mybatis的配置文件怎么放，怎么去读取，啥时候去读取，我们在导入jar包的时候，
+    会发现导入了一个mybatis-spring这样的坐标，那么很显然，这就是spring整合Mybatis的jar包。
+
+    回顾一下Mybatis的测试代码，首先是使用构建者模式（通过new一个SqlSession-FactoryBuilder）获取SqlSessionFactory对象，
+    然后使用工厂模式来获取SqlSession对象，最后使用代理模式获取dao对象。会发现这里涉及到了很多对象，而我们最终需要的只是dao对象，
+    刚好，spring的最强大的能力之一便是管理对象，所以我们将这些对象全部交给Spring来管理，我们只需要拿到dao对象即可！
+    -->
+    <!--配置数据源使用的c3p0-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8"/>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+
+    <!--整合mybatis配置SqlSession的工厂-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:mybatis-config"></property>
+    </bean>
+
+    <!--配置扫描的包-->
+    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ssm.dao"></property>
+    </bean>
+
+</beans>
