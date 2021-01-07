@@ -40,10 +40,9 @@ public class MapperTest {
         UserDao userMapper = sqlSession.getMapper(UserDao.class);
         User user = new User();
         user.setSex("女");
-        user.setname("倪妮");
+        user.setName("倪妮");
         UserQureyVo userQureyVo = new UserQureyVo();
         userQureyVo.setUser(user);
-        //调用userdao的方法
         List<User> list  = userMapper.findUserCustom(userQureyVo);
         System.out.println(list);
     }
@@ -58,7 +57,7 @@ public class MapperTest {
         UserDao userMapper = sqlSession.getMapper(UserDao.class);
         UserQureyVo userQureyVo = new UserQureyVo();
         User user = new User();
-        user.setname("倪");
+        user.setName("倪");
         //这里使用动态SQL,如果不设置某个值,条件不会拼接在SQL中
         //user.setSex("男");
         userQureyVo.setUser(user);
