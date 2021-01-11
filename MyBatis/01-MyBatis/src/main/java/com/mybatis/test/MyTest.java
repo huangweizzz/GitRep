@@ -110,4 +110,15 @@ public class MyTest {
         session.close();
     }
 
+
+    /**
+     * 模糊查询
+     */
+    @Test
+    public void testLikeUser(){
+    SqlSession session = MyBatisUtils.getSession();
+    UserMapper mapper = session.getMapper(UserMapper.class);
+
+    }
+
 }
