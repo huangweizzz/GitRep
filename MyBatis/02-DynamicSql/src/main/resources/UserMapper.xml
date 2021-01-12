@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.UserMapper">
+
+    <!--
+     if-where
+    -->
+    <select id="queryIfWhereResult"  resultType="com.mybatis.bean.User">
+        select * from user
+        <where>
+            <if test="id != '' and id != null">
+                id =#{id}
+            </if>
+            <if test="name != '' and name != null">
+               and name=#{name}
+            </if>
+        </where>
+    </select>
+
+    <!--多条件模糊查询-->
+    <select id="queryLikeResult" resultType="com.mybatis.bean.User">
+        select * from user
+        <where>
+            <if test="id != '' and id != null">
+                id =#{id}
+            </if>
+            <if test="name != '' and name != null">
+                and name like concat(concat("%",#{name}),"%")#{name}
+            </if>
+        </where>
+    </select>
+
+
+    <!--choose(where,otherwise)
+        id,name,pwd只能选择一个作为查询
+        如果id,name为空,则选择pwd查询
+        查询的结果不同
+    -->
+    <select id="queryChooseResult" resultType="com.mybatis.bean.User">
+        select * from user
+        <where>
+            <choose>
+                <when test="id != '' and id != null">
+                    id=#{id}
+                </when>
+                <when test="name != '' and name != null">
+                    and name=#{name}
+                </when>
+                <otherwise>
+                    and pwd=#{pwd}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+    <!--
+        trim标记是一个格式化的标记,可以完成set或者where标记的功能
+        去掉第一个and或者or
+    -->
+<!--    <select id="queryTrimResult" resultType="com.mybatis.bean.User">-->
+<!--        select * from user-->
+<!--        <where>-->
+<!--            <if test="id != '' and id != null">-->
+<!--                id =#{id}-->
+<!--            </if>-->
+<!--            <if test="name != '' and name != null">-->
+<!--                and name=#{name}-->
+<!--            </if>-->
+<!--        </where>  -->
+<!--        <trim prefix="where" prefixOverrides="and | or">-->
+<!--            <if test="name != '' and name != null">-->
+<!--                and name=#{name}-->
+<!--            </if>-->
+<!--            <if test="id != '' and id != null">-->
+<!--                and id=#{id}-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </select>-->
+
+
+    <!--SQL片段增加代码的重用性
+        最好基于单表,最好不要包括where
+    -->
+    <sql id="commonQueryNameAndId">
+        <if test="id != '' and id != null">
+            id =#{id}
+        </if>
+        <if test="name != '' and name != null">
+            and name=#{name}
+        </if>
+    </sql>
+    <select id="queryTrimResult" resultType="com.mybatis.bean.User">
+        select * from user
+        <trim prefix="where" prefixOverrides="and | or">
+            <include refid="commonQueryNameAndId" />
+        </trim>
+    </select>
+
+
+    <!--
+        collection 传入的参数名称
+        item 每次遍历生成的对象
+    -->
+    <select id="queryForeachResult" resultType="com.mybatis.bean.User">
+        select * from user
+        <foreach collection="ids" item="id" open="where (" close=")" separator="or" >
+            id=#{id}
+        </foreach>
+    </select>
+
+    <!--
+      insert into user (name,pwd) values (?,?) , (?,?)
+    -->
+    <insert id="insertForeachResult" parameterType="com.mybatis.bean.User">
+        insert into user
+        (name,pwd)
+        values
+        <foreach collection="users" item="m" separator="," >
+            (#{m.name},#{m.pwd})
+        </foreach>
+    </insert>
+</mapper>
