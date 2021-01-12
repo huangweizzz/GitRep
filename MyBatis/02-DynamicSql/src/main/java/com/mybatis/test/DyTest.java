@@ -12,6 +12,9 @@ import java.util.List;
 public class DyTest {
 
 
+    /**
+     * if-where查询
+     */
     @Test
     public void queryIfWhere(){
         SqlSession session = MyBatisUtils.getSession();
@@ -22,6 +25,9 @@ public class DyTest {
         }
     }
 
+    /**
+     * choose(where,otherwise)查询
+     */
     @Test
     public void queryChooseResult(){
         SqlSession session = MyBatisUtils.getSession();
@@ -36,7 +42,7 @@ public class DyTest {
     public void queryTrimResult(){
         SqlSession session = MyBatisUtils.getSession();
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        List<User> user = userMapper.queryChooseResult(null,"李四",null);
+        List<User> user = userMapper.queryTrimResult(null,"李四");
         for (User u : user){
             System.out.println(u);
         }
@@ -56,27 +62,35 @@ public class DyTest {
         }
     }
 
+    /**
+     * 多条件模糊查询
+     */
     @Test
     public void queryLikeResult(){
         SqlSession session = MyBatisUtils.getSession();
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        List<User> user = userMapper.queryIfWhereResult(null,"张");
+        List<User> user = userMapper.queryLikeResult(null,"张");
         for (User u : user) {
             System.out.println(u);
         }
     }
 
+    /**
+     * 批量插入(如果主键存在则修改,不存在则新增)
+     */
     @Test
     public void insertForeachResult(){
         SqlSession session = MyBatisUtils.getSession();
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        User u1 = new User();
-        u1.setName("老朱");
-        u1.setPwd("666");
-        User u2 = new User();
-        u2.setName("老刘");
-        u2.setPwd("777");
         List<User> li = new ArrayList<User>();
+        User u1 = new User();
+        User u2 = new User();
+        u1.setId(8);
+        u1.setName("老朱");
+        u1.setPwd("888");
+        u2.setId(9);
+        u2.setName("老刘");
+        u2.setPwd("999");
         li.add(u1);
         li.add(u2);
         int i = userMapper.insertForeachResult(li);

@@ -27,7 +27,7 @@
                 id =#{id}
             </if>
             <if test="name != '' and name != null">
-                and name like concat(concat("%",#{name}),"%")#{name}
+                and name like concat(concat("%",#{name}),"%")
             </if>
         </where>
     </select>
@@ -116,10 +116,12 @@
     -->
     <insert id="insertForeachResult" parameterType="com.mybatis.bean.User">
         insert into user
-        (name,pwd)
+        (id,name,pwd)
         values
         <foreach collection="users" item="m" separator="," >
-            (#{m.name},#{m.pwd})
+            (#{m.id},#{m.name},#{m.pwd})
         </foreach>
+        ON DUPLICATE KEY UPDATE
+        id=values(id),name=values(name),pwd=values(pwd)
     </insert>
 </mapper>
