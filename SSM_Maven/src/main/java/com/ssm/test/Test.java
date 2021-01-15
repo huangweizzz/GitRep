@@ -45,6 +45,9 @@ public class Test {
         AccountDao dao = ac.getBean(AccountDao.class);
         System.out.println(dao);//org.apache.ibatis.binding.MapperProxy@6a2b953e
 
+    }
 
+    public void test4(){
+        System.out.println("测试分支的代码");
     }
 }
