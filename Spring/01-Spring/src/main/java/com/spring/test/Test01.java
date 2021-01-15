@@ -27,7 +27,7 @@ public class Test01 {
     public void test02(){
         UserServiceImpl userServiceImpl = new UserServiceImpl();
         userServiceImpl.setUserDao(new UserDaoImpl());
-        //当我们想使用Oracle去实现呢
+        //使用Oracle去实现呢
         userServiceImpl.setUserDao(new UserDaoOracleImpl());
     }
 
