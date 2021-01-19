@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8001
 
 #mybatis的配置
 mybatis:
-  type-aliases-package: com.springcloud.study
+  type-aliases-package: com.springcloud.enties
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
 

@@ -6,13 +6,27 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper //加上此注解可以减少mapper.xml注解的配置,一般在方法上配合@Select
-@Repository //交给spring处理
+@Mapper //告诉Spring容器是dao层,等同于在springboot的主启动类加上@MapperScan
 public interface DeptDao {
 
+    /**
+     * 增加一个部门
+     * @param dept
+     * @return
+     */
     boolean addDept(Dept dept);
 
+    /**
+     * 根据id查询部门信息
+     * @param id
+     * @return
+     */
     Dept queryById(Long id);
 
+
+    /**
+     * 查询所有部门
+     * @return
+     */
     List<Dept> queryAll();
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DeptServiceImpl implements DeptService{
+public class DeptServiceImpl implements DeptService {
 
 
     @Autowired
@@ -22,11 +22,11 @@ public class DeptServiceImpl implements DeptService{
 
     public Dept queryById(Long id) {
 
-        return null;
+        return deptDao.queryById(id);
     }
 
     public List<Dept> queryAll() {
 
-        return null;
+        return deptDao.queryAll();
     }
 }

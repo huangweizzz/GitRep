@@ -6,10 +6,18 @@
 
 
 
-    <insert id="addDept" >
-    insert into
-    dept(deptname,db_source)
-    values(#{deptName},#{dbSource})
+    <insert id="addDept" parameterType="Dept">
+    insert into dept(deptname,db_source)
+    values
+    (#{deptName},#{dbSource})
     </insert>
+
+    <select id="queryById" parameterType="Long" resultType="Dept">
+        select * from dept where deptno = #{deptNo}
+    </select>
+
+    <select id="queryAll" resultType="Dept">
+        select * from dept
+    </select>
 
 </mapper>

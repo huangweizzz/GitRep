@@ -11,6 +11,7 @@
   <modules>
     <module>springcloud-study-api</module>
       <module>springcloud-provider-dept-8001</module>
+      <module>springcloud-cunsumer-dept-80</module>
   </modules>
 
   <properties>
@@ -102,11 +103,11 @@
         </dependency>
 
         <!--热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>2.2.2.RELEASE</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <version>2.2.2.RELEASE</version>-->
+<!--        </dependency>-->
     </dependencies>
   </dependencyManagement>
 

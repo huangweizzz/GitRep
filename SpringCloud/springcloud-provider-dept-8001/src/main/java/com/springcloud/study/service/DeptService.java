@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface DeptService {
 
-    public boolean addDept(Dept dept);
+    boolean addDept(Dept dept);
 
-    public Dept queryById(Long id);
+    Dept queryById(Long id);
 
-    public List<Dept> queryAll();
+    List<Dept> queryAll();
 
 }
