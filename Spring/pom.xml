@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>01-Spring</module>
-        <module>02-Spring-DI</module>
+        <module>02-HelloSpring</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,6 +21,12 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
 
     </dependencies>
 
