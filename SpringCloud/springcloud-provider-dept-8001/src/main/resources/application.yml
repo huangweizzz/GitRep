@@ -17,3 +17,19 @@ spring:
     url: jdbc:mysql://localhost:3306/db01?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8
     username: root
     password: 123456
+
+
+#Eureka的配置 服务注册到哪里去
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001 #修改Eureka上的默认描述信息
+
+# info配置
+info:
+# 项目的名称
+ app.name: springcloud-provider0-dept-8001
+# 公司的名称
+ company.name: 测试公司
