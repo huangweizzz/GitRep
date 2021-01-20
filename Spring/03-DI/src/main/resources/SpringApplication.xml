@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        常量注入
+    -->
+    <bean id="student" class="com.spring.study.enties.Student">
+       <!-- <property name="name" value="赵三"></property>-->
+    </bean>
+
+
+
+<!--    <bean id="addr" class="com.spring.study.enties.Address">-->
+<!--        <property name="address" value="重庆"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="name" value="小明"/>-->
+<!--        <property name="address" ref="addr"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="name" value="小明"/>-->
+<!--        <property name="address" ref="addr"/>-->
+<!--        <property name="books">-->
+<!--            <array>-->
+<!--                <value>西游记</value>-->
+<!--                <value>红楼梦</value>-->
+<!--                <value>水浒传</value>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="hobbys">-->
+<!--            <list>-->
+<!--                <value>听歌</value>-->
+<!--                <value>看电影</value>-->
+<!--                <value>爬山</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="card">-->
+<!--            <map>-->
+<!--                <entry key="中国邮政" value="456456456465456"/>-->
+<!--                <entry key="建设" value="1456682255511"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="games">-->
+<!--            <set>-->
+<!--                <value>LOL</value>-->
+<!--                <value>BOB</value>-->
+<!--                <value>COC</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="wife"><null/></property>-->
+<!--    </bean>-->
+
+
+<!--    <bean id="student" class="com.spring.study.enties.Student">-->
+<!--        <property name="info">-->
+<!--            <props>-->
+<!--                <prop key="学号">20190604</prop>-->
+<!--                <prop key="性别">男</prop>-->
+<!--                <prop key="姓名">小明</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    P(属性: properties)命名空间,属性依然要设置set方法&ndash;&gt;-->
+<!--    <bean id="user" class="com.spring.study.enties.User" p:name="小猫" p:age="18"/>-->
+
+
+    <!--C(构造: \Constructor)命名空间 , 属性依然要设置set方法-->
+<!--    <bean id="user" class="com.spring.study.enties.User" c:name="小狗" c:age="18"/>-->
+
+<!--    <bean id="user" class="com.spring.study.enties.User" scope="singleton">
+
+    </bean>-->
+
+    <!--
+     或者: <bean id="account" class="com.foo.DefaultAccount" singleton="false"/>
+    -->
+    <bean id="user" class="com.spring.study.enties.User" scope="prototype"/>
+
+
+    <bean id="user" class="com.spring.study.enties.User" scope="request"/>
+
+    <bean id="user" class="com.spring.study.enties.User" scope="session"/>
+
+
+
+
+
+</beans>

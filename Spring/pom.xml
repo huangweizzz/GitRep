@@ -10,6 +10,7 @@
     <modules>
         <module>01-Spring</module>
         <module>02-HelloSpring</module>
+        <module>03-DI</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +28,12 @@
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
             </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.1.10.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

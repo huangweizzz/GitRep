@@ -4,9 +4,64 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--bean就是java对象 , 由Spring创建和管理-->
+    <!--bean就是java对象,由Spring创建和管理-->
     <bean id="hello" class="com.spring.study.entity.Student">
         <property name="name" value="Spring"/>
     </bean>
+
+    <bean id="OracleImpl" class="com.spring.study.impl.UserDaoOracleImpl"></bean>
+
+    <bean id="ServiceImpl" class="com.spring.study.impl.UserServiceImpl">
+        <!--注意:这里的name并不是属性,而是set()方法后面的那部分,首字母小写-->
+        <!--引用另外一个bean,不是用value 而是用 ref-->
+        <property name="userDao" ref="OracleImpl"/>
+    </bean>
+
+
+    <!-- 无参构造方法
+    通过set方法设置值
+    -->
+    <bean id="user" class="com.spring.study.entity.User">
+    <property name="name" value="张三"></property>
+    </bean>
+
+    <!--通过有参数的构造方法设置值
+        index构造方法参数的顺序 value为值
+    -->
+<!--    <bean id="UserT" class="com.spring.study.entity.UserT">-->
+<!--       <constructor-arg index="0" value="李四"></constructor-arg>-->
+<!--    </bean>-->
+
+    <!--
+        根据构造方法指定参数赋值
+    -->
+<!--    <bean id="UserT" class="com.spring.study.entity.UserT">-->
+<!--       <constructor-arg name="username" value="赵四"></constructor-arg>-->
+<!--    </bean>-->
+
+    <!--
+        根据构造方法的参数类型来赋值
+    -->
+    <bean id="UserT" class="com.spring.study.entity.UserT">
+        <constructor-arg type="java.lang.String" value="王五"></constructor-arg>
+    </bean>
+    
+    <alias name="UserT" alias="UserNew"></alias>
+
+
+    <!--bean就是java对象,由Spring创建和管理-->
+    <!--
+       id 是bean的标识符,要唯一,如果没有配置id,name就是默认标识符
+       如果配置id,又配置了name,那么name是别名
+       name可以设置多个别名,可以用逗号,分号,空格隔开
+       如果不配置id和name,可以根据applicationContext.getBean(.class)获取对象;
+       class是bean的全限定名=包名+类名
+    -->
+    <bean name="hello2 h2,h3;h4" class="com.spring.study.entity.User">
+        <property name="name" value="Spring"/>
+    </bean>
+
+
+    <!--<import resource="{path}/beans.xml"/>-->
 
 </beans>
