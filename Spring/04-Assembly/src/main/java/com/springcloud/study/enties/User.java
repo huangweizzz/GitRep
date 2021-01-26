@@ -1,31 +1,21 @@
 package com.springcloud.study.enties;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.annotation.Resource;
+
 public class User {
 
-    private  Cat cat;
+    @Resource(name = "cat1")
+    private  Cat1 cat1;
+    @Resource
     private  Dog dog;
     private  String str;
 
-
-    public void setCat(Cat cat) {
-
-        this.cat = cat;
-    }
-
-    public void setDog(Dog dog) {
-
-        this.dog = dog;
-    }
-
-    public void setStr(String str) {
-
-        this.str = str;
-    }
-
-    public Cat getCat() {
-
-        return cat;
+    public Cat1 getCat() {
+        return cat1;
     }
 
     public Dog getDog() {
@@ -33,8 +23,6 @@ public class User {
     }
 
     public String getStr() {
-
         return str;
     }
-
 }

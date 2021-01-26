@@ -12,9 +12,5 @@ public class Test {
         User user = (User) context.getBean("user");
         user.getCat().shout();
         user.getDog().shout();
-
-
     }
-
-
 }

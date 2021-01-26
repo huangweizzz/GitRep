@@ -14,6 +14,7 @@ import java.util.List;
 public class AccountController {
     @Autowired
     private AccountService accountService;
+
     @RequestMapping("/findAll")
     public String findAll(Model model){
         System.out.println("controller层...");

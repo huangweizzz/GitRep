@@ -1,8 +1,8 @@
 package com.springcloud.study.enties;
 
-public class Cat {
+public class Dog1 {
 
     public void shout(){
-        System.out.println("瞄0~");
+        System.out.println("旺1~");
     }
 }

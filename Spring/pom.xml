@@ -12,6 +12,7 @@
         <module>02-HelloSpring</module>
         <module>03-DI</module>
         <module>04-Assembly</module>
+        <module>05-agency</module>
     </modules>
     <packaging>pom</packaging>
 
