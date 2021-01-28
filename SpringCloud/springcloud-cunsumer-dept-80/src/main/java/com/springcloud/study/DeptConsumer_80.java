@@ -2,15 +2,13 @@ package com.springcloud.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@EnableEurekaClient //在服务启动后,自动注册到Eureka中
-@EnableDiscoveryClient //服务发现
+//ribbon和eureka整合以后,客户端可以直接调用,不用关系ip地址和端口号
 @SpringBootApplication
-public class DeptProvider_8001 {
-
+@EnableEurekaClient
+public class DeptConsumer_80 {
     public static void main(String[] args) {
-        SpringApplication.run(DeptProvider_8001.class,args);
+        SpringApplication.run(DeptConsumer_80.class,args);
     }
 }

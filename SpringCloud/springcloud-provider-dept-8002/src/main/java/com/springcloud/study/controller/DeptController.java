@@ -2,7 +2,6 @@ package com.springcloud.study.controller;
 
 import com.springcloud.enties.Dept;
 import com.springcloud.study.service.DeptService;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

@@ -17,12 +17,16 @@ public class DeptConsumerController {
     @Autowired
     private RestTemplate restTemplate; //提供多种便捷访问http服务的方法,简单的Restful服务模板
 
-    private static final String REST_URL_PREFIX="http://localhost:8001";
+
+
+    //private static final String REST_URL_PREFIX="http://localhost:8001";
+    //通过ribbon,我们这里的地址应该是一个变量,通过服务来访问
+    private static final String REST_URL_PREFIX = "http://springcloud-provider-dept";
 
     @RequestMapping("/consumer/dept/get/{id}")
     public Dept get(@PathVariable("id") Long id){
 
-        return restTemplate.getForObject(REST_URL_PREFIX+"dept/get/"+id,Dept.class);
+        return restTemplate.getForObject(REST_URL_PREFIX+"/dept/get/"+id,Dept.class);
     }
 
     @RequestMapping("/consumer/dept/add")
@@ -32,6 +36,6 @@ public class DeptConsumerController {
 
     @RequestMapping("/consumer/dept/list")
     public List<Dept> list(){
-        return restTemplate.getForObject(REST_URL_PREFIX+"dept/list",List.class);
+        return restTemplate.getForObject(REST_URL_PREFIX+"/dept/list",List.class);
     }
 }
