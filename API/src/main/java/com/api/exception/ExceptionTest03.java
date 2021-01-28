@@ -14,7 +14,7 @@ public class ExceptionTest03 {
             int i = 10/0;
             System.out.println("i="+i);
         } catch (ArithmeticException e) {
-            throw new MyException("This is MyException");
+            //throw new MyException("This is MyException");
         }
     }
 }
