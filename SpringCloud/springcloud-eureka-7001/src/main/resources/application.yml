@@ -2,7 +2,7 @@ server:
   port: 7001
 
 
-  #Eureka配置
+#Eureka配置
 eureka:
   instance:
     hostname: eureka7001.com #Eureka服务端的实例名称
