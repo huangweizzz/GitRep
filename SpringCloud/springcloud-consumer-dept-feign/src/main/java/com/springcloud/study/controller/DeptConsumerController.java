@@ -29,6 +29,7 @@ public class DeptConsumerController {
 
     @RequestMapping("/consumer/dept/list")
     public List<Dept> list(){
+
         return service.queryAll();
     }
 }

@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+/**
+ * 说明:接口这里的地址指向的是controller,访问的方法时controller中的方法
+ */
 @FeignClient(value = "springcloud-provider-dept") //找到对应的微服务提供者
 public interface DeptClientService {
 

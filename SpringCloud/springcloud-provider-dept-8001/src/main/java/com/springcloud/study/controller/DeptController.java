@@ -21,20 +21,17 @@ public class DeptController {
 
     @PostMapping("/dept/add")
     public boolean addDept(Dept dept) {
-
         return deptService.addDept(dept);
     }
 
 
     @GetMapping("/dept/get/{id}")
     public Dept queryById(@PathVariable(value = "id") Long id){
-
         return deptService.queryById(id);
     }
 
     @GetMapping("/dept/list")
     public List<Dept> queryAll() {
-
         return deptService.queryAll();
     }
 
