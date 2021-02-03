@@ -2,6 +2,7 @@ package com.springcloud.study.dao;
 
 import com.springcloud.enties.Dept;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,8 +17,9 @@ public interface DeptDao {
      */
     boolean addDept(Dept dept);
 
+
     /**
-     * 根据id查询部门信息
+     * 根据id查找
      * @param id
      * @return
      */

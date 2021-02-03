@@ -20,10 +20,16 @@ public class DeptServiceImpl implements DeptService {
         return deptDao.addDept(dept);
     }
 
+    /**
+     * 根据id来查找
+     * @param id
+     * @return
+     */
     public Dept queryById(Long id) {
 
         return deptDao.queryById(id);
     }
+
 
     public List<Dept> queryAll() {
 

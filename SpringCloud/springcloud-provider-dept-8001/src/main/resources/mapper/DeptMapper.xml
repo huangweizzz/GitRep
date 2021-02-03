@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springcloud.study.dao.DeptDao">
 
-    <resultMap id="DeptMap" type="com.springcloud.enties.Dept">
+    <resultMap id="DeptMap" type="Dept">
         <id column="dept_no" property="deptNo"></id>
         <result column="dept_name" property="deptName"></result>
         <result column="db_source" property="dbSource"></result>
@@ -13,11 +13,12 @@
     <insert id="addDept" parameterType="Dept">
         insert into dept(deptname,db_source)
         values
-            (#{deptName},#{dbSource})
+        (#{deptName},#{dbSource})
     </insert>
 
-    <select id="queryById" parameterType="Long" resultType="Dept">
-        select * from dept where deptno = #{deptNo}
+
+    <select id="queryById" parameterType="Long" resultMap="DeptMap">
+        select * from dept where dept_no = #{id}
     </select>
 
     <select id="queryAll" resultMap="DeptMap">

@@ -2,7 +2,6 @@ package com.springcloud.study.controller;
 
 import com.springcloud.enties.Dept;
 import com.springcloud.study.service.DeptService;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -26,8 +25,9 @@ public class DeptController {
         return deptService.addDept(dept);
     }
 
+
     @GetMapping("/dept/get/{id}")
-    public Dept queryDept(@PathVariable("id") Long id) {
+    public Dept queryById(@PathVariable(value = "id") Long id){
 
         return deptService.queryById(id);
     }

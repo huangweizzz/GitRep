@@ -16,7 +16,7 @@ import java.io.Serializable;
 //@Accessors(chain = true) //链式写法
 public class Dept implements Serializable {
 
-    private Long  deptNo;//主键
+    private Long deptNo;//主键
 
     private String deptName;//部门名称
 

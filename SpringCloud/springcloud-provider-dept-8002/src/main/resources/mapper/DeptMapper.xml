@@ -16,8 +16,8 @@
             (#{deptName},#{dbSource})
     </insert>
 
-    <select id="queryById" parameterType="Long" resultType="Dept">
-        select * from dept where deptno = #{deptNo}
+    <select id="queryById" parameterType="Long" resultMap="DeptMap">
+        select * from dept where dept_no = #{deptNo}
     </select>
 
     <select id="queryAll" resultMap="DeptMap">
