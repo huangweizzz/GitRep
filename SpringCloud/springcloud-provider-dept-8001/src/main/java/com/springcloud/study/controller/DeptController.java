@@ -1,6 +1,7 @@
 package com.springcloud.study.controller;
 
 import com.springcloud.enties.Dept;
+import com.springcloud.study.dao.DeptDao;
 import com.springcloud.study.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -15,6 +16,10 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
+
+    @Autowired
+    private DeptDao deptDao;
+
     //获得一些配置信息,得到具体的微服务
     @Autowired
     private DiscoveryClient client;
@@ -25,9 +30,11 @@ public class DeptController {
     }
 
 
+    //如果是feign调用直接调用dao通俗易懂
     @GetMapping("/dept/get/{id}")
     public Dept queryById(@PathVariable(value = "id") Long id){
-        return deptService.queryById(id);
+        System.out.println("方法执行到这里");
+        return deptDao.queryById(id);
     }
 
     @GetMapping("/dept/list")

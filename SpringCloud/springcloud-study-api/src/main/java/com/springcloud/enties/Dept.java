@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @Data
-//@Accessors(chain = true) //链式写法
+@Accessors(chain = true) //链式写法
 public class Dept implements Serializable {
 
     private Long deptNo;//主键
