@@ -3,6 +3,7 @@ package com.ssm.test;
 import com.ssm.beans.Account;
 import com.ssm.dao.AccountDao;
 import com.ssm.service.AccountService;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -49,5 +50,6 @@ public class Test {
 
     public void test4(){
         System.out.println("测试分支的代码");
+        StringEscapeUtils.unescapeHtml("");
     }
 }
