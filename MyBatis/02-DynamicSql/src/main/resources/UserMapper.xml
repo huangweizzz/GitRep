@@ -7,6 +7,7 @@
     <!--
      if-where
     -->
+    <!--如果User下属性是对象,那么直接可以使用condition.xxx,而不是user.condition.xxx-->
     <select id="queryIfWhereResult"  resultType="com.mybatis.bean.User">
         select * from user
         <where>
