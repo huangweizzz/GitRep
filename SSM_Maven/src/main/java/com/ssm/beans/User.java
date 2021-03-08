@@ -1,5 +1,8 @@
 package com.ssm.beans;
 
+import lombok.Data;
+
+@Data
 public class User {
     private Integer id;
     private String name;
@@ -16,6 +19,7 @@ public class User {
     }
 
     public Integer getId() {
+        System.out.println("执行覆盖的get方法!");
         return id;
     }
 

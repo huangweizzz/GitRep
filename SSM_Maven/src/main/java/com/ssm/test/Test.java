@@ -1,6 +1,7 @@
 package com.ssm.test;
 
 import com.ssm.beans.Account;
+import com.ssm.beans.User;
 import com.ssm.dao.AccountDao;
 import com.ssm.service.AccountService;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -51,5 +52,19 @@ public class Test {
     public void test4(){
         System.out.println("测试分支的代码");
         StringEscapeUtils.unescapeHtml("");
+    }
+
+    /**
+     * 测试lombok重写
+     */
+    @org.junit.Test
+    public void test5(){
+        Integer id = new User().getId();
+        System.out.println("id的值为:" + id);
+    }
+
+    //测试带logo的二维码
+    public void test6(){
+
     }
 }
