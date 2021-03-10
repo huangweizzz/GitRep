@@ -1,6 +1,6 @@
 package com.springcloud.study.service;
 
-import com.springcloud.enties.Dept;
+import com.springcloud.study.enties.Dept;
 import com.springcloud.study.dao.DeptDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

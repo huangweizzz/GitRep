@@ -1,6 +1,6 @@
 package com.springcloud.study.controller;
 
-import com.springcloud.enties.Dept;
+import com.springcloud.study.enties.Dept;
 import com.springcloud.study.dao.DeptDao;
 import com.springcloud.study.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;

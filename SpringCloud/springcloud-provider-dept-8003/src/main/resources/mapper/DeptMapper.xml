@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.springcloud.study.dao.DeptDao">
+<mapper namespace="study.study.controller.dao.DeptDao">
 
-    <resultMap id="DeptMap" type="com.springcloud.enties.Dept">
+    <resultMap id="DeptMap" type="com.springcloud.study.enties.Dept">
         <id column="dept_no" property="deptNo"></id>
         <result column="dept_name" property="deptName"></result>
         <result column="db_source" property="dbSource"></result>

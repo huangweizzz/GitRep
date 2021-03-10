@@ -12,8 +12,8 @@
     <context:annotation-config/>
 
 
-    <bean id="dog" class="com.springcloud.study.enties.Dog"/>
-    <bean id="cat1" class="com.springcloud.study.enties.Cat1"/>
-    <bean id="user" class="com.springcloud.study.enties.User"/>
+    <bean id="dog" class="study.study.enties.Dog"/>
+    <bean id="cat1" class="study.study.enties.Cat1"/>
+    <bean id="user" class="study.study.enties.User"/>
 
 </beans>

@@ -1,7 +1,7 @@
 package com.springcloud.study.controller;
 
-import com.springcloud.enties.Dept;
-import com.springcloud.service.DeptClientService;
+import com.springcloud.study.enties.Dept;
+import com.springcloud.study.service.DeptClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
 package com.springcloud.study.service;
 
-import com.springcloud.enties.Dept;
+import com.springcloud.study.enties.Dept;
 
 import java.util.List;
 

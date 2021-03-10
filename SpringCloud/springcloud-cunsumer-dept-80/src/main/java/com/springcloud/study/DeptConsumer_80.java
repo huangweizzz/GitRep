@@ -1,7 +1,6 @@
 package com.springcloud.study;
 
-import com.springcloud.myrule.EgoRule;
-import com.springcloud.myrule.MyRandomRule;
+import com.springcloud.study.myrule.EgoRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;

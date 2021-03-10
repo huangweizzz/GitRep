@@ -41,7 +41,7 @@
 
     <!--配置扫描的包-->
     <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ssm.dao"></property>
+        <property name="basePackage" value="com.ssm.study.controller.dao"></property>
     </bean>
 
 </beans>
