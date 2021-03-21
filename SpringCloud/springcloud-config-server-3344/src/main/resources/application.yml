@@ -12,3 +12,11 @@ spring:
           uri: https://github.com/huangweizzz/githubtest.git  #这个仓库目录下的配置
 
 
+# 不加这个配置会报Cannot execute request on any known server 这个错：连接Eureka服务端地址不对
+# 或者直接注释掉eureka依赖 这里暂时用不到eureka（如果有Eureka的依赖的话，会向eureka地址发送链接）
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+

@@ -1,3 +1,4 @@
+#系统级别的配置
 spring:
   cloud:
     config:
